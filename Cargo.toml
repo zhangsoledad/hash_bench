@@ -1,0 +1,8 @@
+[package]
+name = "sometry"
+version = "0.1.0"
+authors = ["soledad"]
+
+[dependencies]
+sha3 = { path = "./sha3" }
+blake2b = { path = "./blake2b" }
