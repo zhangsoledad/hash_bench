@@ -1,8 +1,14 @@
 [package]
-name = "sometry"
+name = "hash_bench"
 version = "0.1.0"
 authors = ["soledad"]
 
 [dependencies]
-sha3 = { path = "./sha3" }
+keccak = { path = "./keccak" }
 blake2b = { path = "./blake2b" }
+criterion = "0.2"
+
+
+[[bench]]
+name = "hash_bench"
+harness = false

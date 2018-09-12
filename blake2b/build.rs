@@ -1,9 +1,9 @@
 // build.rs
 
-extern crate gcc;
-
+extern crate cc;
 
 fn main() {
-    gcc::compile_library("libblake2b.a", &["src/blake2b.c"]);
+    cc::Build::new()
+        .file("src/blake2b.c")
+        .compile("libblake2b.a");
 }
-

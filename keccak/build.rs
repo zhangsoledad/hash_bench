@@ -14,13 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
- // build.rs
+// build.rs
 
 // Bring in a dependency on an externally maintained `gcc` package which manages
 // invoking the C compiler.
-extern crate gcc;
+extern crate cc;
 
 fn main() {
-    gcc::compile_library("libtinykeccak.a", &["src/tinykeccak.c"]);
+    cc::Build::new()
+        .flag_if_supported("-std=c99")
+        .file("src/tinykeccak.c")
+        .compile("libtinykeccak.a");
 }
-
